@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="wakusan61.spring.todo.repository.TodoMapper">
+<mapper namespace="wakusan61.spring.todo.repository.TodoRepository">
 
     <!-- 結果マッピング -->
     <resultMap id="TodoResultMap" type="wakusan61.spring.todo.model.Todo">

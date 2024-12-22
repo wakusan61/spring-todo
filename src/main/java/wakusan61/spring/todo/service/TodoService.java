@@ -1,38 +1,45 @@
 package wakusan61.spring.todo.service;
 
 import org.springframework.stereotype.Service;
-import wakusan61.spring.todo.model.Todo;
-import wakusan61.spring.todo.repository.TodoMapper;
+import wakusan61.spring.todo.converter.TodoConverter;
+import wakusan61.spring.todo.dto.TodoDto;
+import wakusan61.spring.todo.repository.TodoRepository;
 
 import java.util.List;
 
 @Service
 public class TodoService {
-  private final TodoMapper todoMapper;
+  private final TodoRepository todoRepository;
+  private final TodoConverter todoConverter;
 
-  public TodoService(TodoMapper todoMapper) {
-    this.todoMapper = todoMapper;
+  public TodoService(
+          TodoRepository todoRepository,
+          TodoConverter todoConverter
+  ) {
+    this.todoRepository = todoRepository;
+    this.todoConverter = todoConverter;
   }
 
-  public List<Todo> getAllTodos() {
-    return todoMapper.findAll();
+  public List<TodoDto> getAllTodos() {
+    return todoRepository.findAll()
+            .stream()
+            .map(todoConverter::toDto)
+            .toList();
   }
 
-  public Todo getTodoById(Long id) {
-    return todoMapper.findById(id);
+  public TodoDto getTodoById(Long id) {
+    return todoConverter.toDto(todoRepository.findById(id));
   }
 
-  public Todo createTodo(Todo todo) {
-    todoMapper.insert(todo);
-    return todo;
+  public void createTodo(TodoDto dto) {
+    todoRepository.insert(todoConverter.toEntity(dto));
   }
 
-  public Todo updateTodo(Todo todo) {
-    todoMapper.update(todo);
-    return todo;
+  public void updateTodo(TodoDto dto) {
+    todoRepository.update(todoConverter.toEntity(dto));
   }
 
   public void deleteTodoById(Long id) {
-    todoMapper.delete(id);
+    todoRepository.delete(id);
   }
 }

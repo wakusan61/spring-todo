@@ -6,7 +6,7 @@ import wakusan61.spring.todo.model.Todo;
 import java.util.List;
 
 @Mapper
-public interface TodoMapper {
+public interface TodoRepository {
   List<Todo> findAll();
   Todo findById(Long id);
   void insert(Todo todo);
