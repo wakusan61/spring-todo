@@ -1,8 +1,8 @@
-# spring-todo
+# Spring Todo アプリ
 
-## 環境構築手順
-
-[こちら](docs/SetupDevleperEmviroment.md)を参照してください。
+- [環境構築手順](docs/SetupDevleperEmviroment.md)
+- [アーキテクチャ](docs/Architecture.md)
+- [テーブル定義](docs/TableDefinition.md)
 
 ## ディレクトリ構成
 
@@ -22,7 +22,7 @@ src/
 │       └── java/com/example/todo/
 ```
 
-## OpenAPI 定義
+## OpenAPI 
 
 Springdoc は Spring MVC のアノテーション（例: @RestController, @RequestMapping, @GetMapping）を解析し、API ドキュメントを自動生成します。
 
