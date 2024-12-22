@@ -1,4 +1,8 @@
 # 開発環境セットアップ
+## 前提
+
+- Home Brew イントール済み
+- OSはMacを想定
 
 ## Rancher Desktop インストール
 
@@ -30,16 +34,24 @@ source ~/.zshrc
 psql --version
 ```
 
-## postgreSQL Docker 起動
+## DB の Docker 起動
 
 ```shell
+cd docker
 docker compose up -d
 ```
 
 ## PostgreSQL の接続確認
 
 ```shell
-psql -h localhost -p 15432 -U postgres
+psql -h localhost -p 15432 -U postgres -d todo_db
 ```
 - パスワードに `postgres` を入力
-- 接続できたら `quit` で終了する。
+
+## DBの初期化ができていることを確認
+
+```shell
+SELECT * FROM todos;
+```
+- データが取得できればOK
+- `quit` コマンドで終了する。

@@ -1,5 +1,9 @@
 # spring-todo
 
+## 環境構築手順
+
+[こちら](docs/SetupDevleperEmviroment.md)を参照してください。
+
 ## ディレクトリ構成
 
 ```
@@ -19,6 +23,8 @@ src/
 ```
 
 ## Spring-Todo プロンプト
+
+https://chatgpt.com/g/g-n7Rs0IK86-grimoire
 
 ```markdown
 # 依頼
