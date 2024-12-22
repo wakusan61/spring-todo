@@ -22,6 +22,15 @@ src/
 │       └── java/com/example/todo/
 ```
 
+## OpenAPI 定義
+
+Springdoc は Spring MVC のアノテーション（例: @RestController, @RequestMapping, @GetMapping）を解析し、API ドキュメントを自動生成します。
+
+アプリケーションを起動すると、以下のエンドポイントが有効になります：
+
+1. Swagger UI:http://localhost:8080/swagger-ui.html
+2. OpenAPI ドキュメント (JSON):http://localhost:8080/v3/api-docs
+
 ## Spring-Todo プロンプト
 
 https://chatgpt.com/g/g-n7Rs0IK86-grimoire/c/67665809-2544-8004-98ad-0e6e581f3ac7
