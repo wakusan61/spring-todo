@@ -4,9 +4,10 @@ spring:
     username: postgres
     password: postgres
 mybatis: # MyBatisフレームワークに関する設定
-  # MyBatis の マッパーXMLファイルが格納されている場所を指定します。
-  mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: wakusan61.spring.todo.model
+  configuration:
+    useGeneratedKeys: true # MyBatis が自動生成キーを使用できるようにする
+  mapper-locations: classpath:mapper/*.xml   # MyBatis の マッパーXMLファイルが格納されている場所を指定します。
+  type-aliases-package: wakusan61.spring.todo.model # MyBatis のエイリアスを指定します。
 logging:
   level:
     org.mybatis: DEBUG

@@ -9,7 +9,7 @@ import java.util.List;
 public interface TodoRepository {
   List<Todo> findAll();
   Todo findById(Long id);
-  void insert(Todo todo);
+  Long  insert(Todo todo);
   void update(Todo todo);
   void delete(Long id);
 }

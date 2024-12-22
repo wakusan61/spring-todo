@@ -3,6 +3,8 @@ package wakusan61.spring.todo.service;
 import org.springframework.stereotype.Service;
 import wakusan61.spring.todo.converter.TodoConverter;
 import wakusan61.spring.todo.dto.TodoDto;
+import wakusan61.spring.todo.dto.TodoWithNoIdDto;
+import wakusan61.spring.todo.model.Todo;
 import wakusan61.spring.todo.repository.TodoRepository;
 
 import java.util.List;
@@ -31,8 +33,10 @@ public class TodoService {
     return todoConverter.toDto(todoRepository.findById(id));
   }
 
-  public void createTodo(TodoDto dto) {
-    todoRepository.insert(todoConverter.toEntity(dto));
+  public TodoDto createTodo(TodoWithNoIdDto dto) {
+    Todo todo = todoConverter.toEntity(dto);
+    todoRepository.insert(todo);
+    return todoConverter.toDto(todo);
   }
 
   public void updateTodo(TodoDto dto) {

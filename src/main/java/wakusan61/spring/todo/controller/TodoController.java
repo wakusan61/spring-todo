@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 import wakusan61.spring.todo.dto.TodoDto;
+import wakusan61.spring.todo.dto.TodoWithNoIdDto;
 import wakusan61.spring.todo.service.TodoService;
 
 import java.util.List;
@@ -32,8 +33,8 @@ public class TodoController {
 
   @PostMapping
   @Operation(summary = "Todoを新規作成します。", description = "新規にTodoを作成します。")
-  public void createTodo(@RequestBody TodoDto dto) {
-    todoService.createTodo(dto);
+  public TodoDto createTodo(@RequestBody TodoWithNoIdDto dto) {
+    return todoService.createTodo(dto);
   }
 
   @PutMapping
