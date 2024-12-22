@@ -3,13 +3,10 @@ spring:
     url: jdbc:postgresql://localhost:15432/todo_db
     username: postgres
     password: postgres
-  mybatis: # MyBatisフレームワークに関する設定
-    # MyBatis の マッパーXMLファイルが格納されている場所を指定します。
-    mapper-locations: classpath:mapper/*.xml
-  jpa:
-    hibernate:
-      # Hibernate を使ってデータベーススキーマ（テーブル構造など）をどのように管理するかを指定。
-      # アプリケーション起動時に、エンティティクラスに基づいてテーブル構造を自動的に更新。
-      # 新しいカラムが追加されていれば、既存のテーブルを変更する。
-      # 本番環境では通常、none または validate を使用し、スキーマは手動で管理します。
-      ddl-auto: update
+mybatis: # MyBatisフレームワークに関する設定
+  # MyBatis の マッパーXMLファイルが格納されている場所を指定します。
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: wakusan61.spring.todo.model
+logging:
+  level:
+    org.mybatis: DEBUG

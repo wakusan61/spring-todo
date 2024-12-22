@@ -24,7 +24,7 @@ src/
 
 ## Spring-Todo プロンプト
 
-https://chatgpt.com/g/g-n7Rs0IK86-grimoire
+https://chatgpt.com/g/g-n7Rs0IK86-grimoire/c/67665809-2544-8004-98ad-0e6e581f3ac7
 
 ```markdown
 # 依頼
