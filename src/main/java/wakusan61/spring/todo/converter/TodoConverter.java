@@ -29,7 +29,7 @@ public class TodoConverter {
     TodoDto dto = new TodoDto();
     dto.setId(entity.getId());
     dto.setTitle(entity.getTitle());
-    dto.setCompleted(entity.isCompleted());
+    dto.setCompleted(entity.getCompleted());
     return dto;
   }
 }

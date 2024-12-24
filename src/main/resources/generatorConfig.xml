@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="PostgresTables" targetRuntime="MyBatis3Simple">
+        <!-- スキーマがパッケージ名に含まれないよう設定 -->
+        <property name="useSchemaInPackage" value="false"/>
+
+        <!-- コメント抑制 -->
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!-- PostgreSQL接続設定 -->
+        <jdbcConnection
+                driverClass="org.postgresql.Driver"
+                connectionURL="jdbc:postgresql://localhost:15432/todo_db"
+                userId="postgres"
+                password="postgres">
+            <!-- PostgreSQLスキーマ設定 -->
+            <property name="nullCatalogMeansCurrent" value="true"/>
+            <property name="currentSchema" value="public"/>
+        </jdbcConnection>
+
+        <!-- Java型解決 -->
+        <javaTypeResolver>
+            <property name="useJSR310Types" value="true"/>
+            <!-- PostgreSQLの数値型マッピング -->
+            <property name="forceBigDecimals" value="true"/>
+        </javaTypeResolver>
+
+        <!-- Entityの生成設定 -->
+        <javaModelGenerator
+                targetPackage="wakusan61.spring.todo.model"
+                targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- XMLマッパーの生成設定 -->
+        <sqlMapGenerator
+                targetPackage="mapper"
+                targetProject="src/main/resources">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <!-- Mapperインターフェースの生成設定 -->
+        <javaClientGenerator
+                type="XMLMAPPER"
+                targetPackage="wakusan61.spring.todo.mapper"
+                targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <!-- 必要なテーブルだけを指定 -->
+        <table schema="public" tableName="%">
+            <!-- idはserialなのでinsert時に登録しないよう設定。 -->
+            <generatedKey column="id" sqlStatement="JDBC" identity="true" type="post"/>
+        </table>
+    </context>
+</generatorConfiguration>

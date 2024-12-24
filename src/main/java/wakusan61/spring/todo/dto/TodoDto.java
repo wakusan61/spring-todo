@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class TodoDto {
-  private Long    id;
+  private Integer id;
   private String  title;
   private boolean completed;
 }

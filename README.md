@@ -6,21 +6,40 @@
 
 ## ディレクトリ構成
 
+`mapper` `model` , `resourece/mapper`は MyBatis Generator でテーブル定義から自動生成します。
+
 ```
 src/
 ├── main/
 │   ├── java/com/example/todo/
 │   │   ├── controller/   // REST API コントローラー
 │   │   ├── service/      // ビジネスロジック
-│   │   ├── repository/   // データベース操作 (MyBatis)
-│   │   ├── model/        // エンティティ
+│   │   ├── mapper/       // データベース操作 (MyBatis) ※ 自動生成
+│   │   ├── model/        // エンティティ ※ 自動生成
 │   │   └── config/       // 設定クラス
 │   ├── resources/
 │   │   ├── application.yml // アプリケーション設定
-│   │   └── mapper/        // MyBatis マッパーXML
+│   │   └── mapper/        // MyBatis マッパーXML ※ 自動生成
 │   └── test/
 │       └── java/com/example/todo/
 ```
+
+## MyBatis Generator
+
+MyBatis Generator は、データベースのテーブル定義から、エンティティクラス、マッパーインターフェース、マッパーXML を自動生成します。
+
+`generatorConfig.xml` にテーブル定義と生成するクラスの設定を記述し、以下のコマンドで生成します。
+
+### コマンド実行
+
+```bash
+./gradlew mbGenerator
+```
+
+### IDEA で実行
+
+メニューから [実行] > [実行構成の編集] から Gradle タスクを追加し、`mbGenerator` を設定します。
+作成したGradleタスクを実行してください。
 
 ## OpenAPI 
 

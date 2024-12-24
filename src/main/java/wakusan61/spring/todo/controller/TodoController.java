@@ -27,7 +27,7 @@ public class TodoController {
 
   @GetMapping("/{id}")
   @Operation(summary = "Todoを1件取得します。", description = "IDを指定してTodoを1件取得します。")
-  public TodoDto getTodoById(@PathVariable Long id) {
+  public TodoDto getTodoById(@PathVariable Integer id) {
     return todoService.getTodoById(id);
   }
 
@@ -45,7 +45,7 @@ public class TodoController {
 
   @DeleteMapping("/{id}")
   @Operation(summary = "Todoを削除します。", description = "指定したIDのTodoを削除します。")
-  public void deleteTodoById(@PathVariable Long id) {
+  public void deleteTodoById(@PathVariable Integer id) {
     todoService.deleteTodoById(id);
   }
 }

@@ -3,6 +3,7 @@ plugins {
 	id 'war'
 	id 'org.springframework.boot' version '3.4.0'
 	id 'io.spring.dependency-management' version '1.1.6'
+	id 'com.thinkimi.gradle.MybatisGenerator' version '2.4'
 }
 
 group = 'wakusan61.spring'
@@ -16,6 +17,10 @@ java {
 
 repositories {
 	mavenCentral()
+}
+
+configurations {
+	mybatisGenerator
 }
 
 dependencies {
@@ -37,6 +42,11 @@ dependencies {
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.4'
 	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.4'
 
+	// MyBatis Generator
+	mybatisGenerator 'org.mybatis.generator:mybatis-generator-core:1.4.2'
+	mybatisGenerator 'org.postgresql:postgresql'
+
+
 	// テスト関連
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.dbunit:dbunit:2.7.3'
@@ -46,4 +56,9 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+mybatisGenerator {
+	verbose = true
+	configFile = 'src/main/resources/generatorConfig.xml'
 }
