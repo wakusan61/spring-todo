@@ -5,7 +5,22 @@ public class Todo {
 
     private String title;
 
-    private Boolean completed;
+    private Status status;
+
+    public enum Status implements CodeEnum {
+
+        READY(0),IN_PROGRESS(1), COMPLETED(2);
+
+        private final int code;
+
+        Status(int code) {
+            this.code = code;
+        }
+
+        public int getCode() {
+            return code;
+        }
+    }
 
     public Integer getId() {
         return id;
@@ -23,11 +38,15 @@ public class Todo {
         this.title = title == null ? null : title.trim();
     }
 
-    public Boolean getCompleted() {
-        return completed;
+    public Status getStatus() {
+        return status;
     }
 
-    public void setCompleted(Boolean completed) {
-        this.completed = completed;
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public void setStatus(int status) {
+        this.status = Status.values()[status];
     }
 }

@@ -36,6 +36,8 @@
         <javaModelGenerator
                 targetPackage="wakusan61.spring.todo.model"
                 targetProject="src/main/java">
+            <!-- 上書きタイプ：既存クラスが存在する場合、既存クラスを変更せず、必要なフィールドのみ更新 -->
+            <property name="modelType" value="conditional" />
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
@@ -55,8 +57,12 @@
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 
-        <!-- 必要なテーブルだけを指定 -->
-        <table schema="public" tableName="%">
+        <!--
+            MyBatis Generatorの自動生成対象テーブルの設定
+            1度自動生成したテーブルは、再度自動生成しないように注意してください。上書きされます。
+            generatedKey: idがserialの場合、自動採番されるため、insert時にidを指定しないよう設定
+        -->
+        <table schema="public" tableName="todo">
             <!-- idはserialなのでinsert時に登録しないよう設定。 -->
             <generatedKey column="id" sqlStatement="JDBC" identity="true" type="post"/>
         </table>
