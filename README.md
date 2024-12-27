@@ -55,54 +55,58 @@ Springdoc は Spring MVC のアノテーション（例: @RestController, @Reque
 https://chatgpt.com/g/g-n7Rs0IK86-grimoire/c/67665809-2544-8004-98ad-0e6e581f3ac7
 
 ```markdown
-# 依頼
+# 【目的・背景】
+- Spring のキャッチアップ用に Todo アプリのハンズオン資料を作りたい。
+- 私（または受講者）はコーディング歴 15 年の Web エンジニアで、中級者がスムーズに学べるレベルを想定。
 
-- Spring のキャッチアップをしたいので、Todo アプリを作る #ハンズオン を考えてください。
-- 私はコーディング歴 15 年の Web エンジニアです。そのため中級者がキャッチアップしやすいレベルでお願いします。
+# 【あなたの役割】
+- あなたはプロの Web エンジニア兼コーチです。
+- 中級者エンジニア向けの Spring ハンズオンを作成するアシスタントとしてふるまってください。
 
-# 役割
+# 【前提条件】
+- 必ず最新のバージョンを採用。最新が LTS でない場合は LTS バージョンを採用してください。
+- 使用する技術スタック:
+    - Java
+    - Spring
+    - Mybatis
+    - PostgreSQL
+    - springdoc-openapi
+    - gradle
+- 開発環境:
+    - IDEA
+    - PostgreSQL (Docker)
+    - rancher desktop
+- テスト:
+    - JUnit
+    - DBUnit
+    - TestContainer
+- CI
+    - GitHubActions
+- CD
+    - AWS ECS
+    - CloudWatch
+    
 
-- あなたは、プロの Web エンジニアのコーチです。
+# 【出力形式】
+- **マークダウン**で出力してください。
+- 下記セクションごとに説明を行ってください。
+    1. **概要**（目的と前提技術の紹介）
+    2. **開発環境構築**（IDEA, Docker, rancher desktop セットアップ方法など）
+    3. **プロジェクトセットアップ**（Java, Spring の初期設定 / build.gradle の設定）
+    4. **Todo アプリ実装**（エンティティ定義, Mybatis 設定, Controller, Repository, Service）
+    5. **API ドキュメント生成**（springdoc-openapi の設定方法と確認手順）
+    6. **テスト実装**（JUnit, DBUnit, TestContainer の使い方）
+    7. **CI（GitHubActions）整備**（ビルド, テスト, Lint など）
+    8. **CD（AWS ECS, CloudWatch）整備**（デプロイ手順, ログ監視設定）
 
-# ハンズオン
+# 【ステップバイステップ要望】
+1. 最初に、上記セクションをすべて箇条書きで示してください。
+2. 続いて、各セクションの詳細な説明・サンプルコード・実行手順を順番に書いてください。
+3. 分量は各セクションあたり 5〜10 行程度でコンパクトにまとめてください。
+4. 「中級エンジニアが理解できる説明レベル」を意識し、初心者向けの基本説明は省略しても構いません。
 
-- 指定した ##技術スタック を全て活用した Todo アプリのハンズオンです。
+# 【最終出力の要望】
+- セクションごとに見出し（## ）を使い、コードブロックは ```java などで記載してください。
+- 注意点や補足があれば、**Tips**などの見出しで追加してください。
 
-## 技術スタック
-
-全て最新のバージョンを指定して下さい。
-LTS バージョンが最新ではない場合は、LTS のバージョンを指定してください。
-
-- Java
-- Spring
-- Mybatis
-- PostgresSQL
-- springdoc-openapi
-
-## 開発環境
-
-- IDEA
-- PostgreSQL(Docker)
-- rancher desktop
-
-## テスト
-
-- JUnit
-- DBUnit
-- TestContainer
--
-
-## CD
-
-- GitHubActions
-
-## AWS
-
-- ECS
-- CloudWatch
-
-# 出力
-
-- マークダウン形式にしてください。
-- 開発環境構築、プロジェクトセットアップ、Todo アプリとテスト実装、CI の整備、CD の整備のような順番でお願いします。
 ```
