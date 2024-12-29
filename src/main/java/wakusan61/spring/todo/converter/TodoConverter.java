@@ -12,14 +12,14 @@ public class TodoConverter {
     Todo entity = new Todo();
     entity.setId(dto.getId());
     entity.setTitle(dto.getTitle());
-    entity.setCompleted(dto.isCompleted());
+    entity.setStatus(dto.getStatus());
     return entity;
   }
 
   public Todo toEntity(TodoWithNoIdDto dto) {
     Todo entity = new Todo();
     entity.setTitle(dto.getTitle());
-    entity.setCompleted(dto.isCompleted());
+    entity.setStatus(dto.getStatus());
     return entity;
   }
 
@@ -29,7 +29,7 @@ public class TodoConverter {
     TodoDto dto = new TodoDto();
     dto.setId(entity.getId());
     dto.setTitle(entity.getTitle());
-    dto.setCompleted(entity.getCompleted());
+    dto.setStatus(entity.getStatus());
     return dto;
   }
 }

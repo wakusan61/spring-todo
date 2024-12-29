@@ -45,7 +45,7 @@ dependencies {
 	// MyBatis Generator
 	mybatisGenerator 'org.mybatis.generator:mybatis-generator-core:1.4.2'
 	mybatisGenerator 'org.postgresql:postgresql'
-
+	implementation 'org.reflections:reflections:0.10.2'
 
 	// テスト関連
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'

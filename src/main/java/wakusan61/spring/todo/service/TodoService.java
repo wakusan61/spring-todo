@@ -4,8 +4,8 @@ import org.springframework.stereotype.Service;
 import wakusan61.spring.todo.converter.TodoConverter;
 import wakusan61.spring.todo.dto.TodoDto;
 import wakusan61.spring.todo.dto.TodoWithNoIdDto;
-import wakusan61.spring.todo.model.Todo;
 import wakusan61.spring.todo.mapper.TodoMapper;
+import wakusan61.spring.todo.model.Todo;
 
 import java.util.List;
 
