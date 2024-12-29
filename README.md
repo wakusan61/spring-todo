@@ -41,6 +41,12 @@ MyBatis Generator は、データベースのテーブル定義から、エン�
 メニューから [実行] > [実行構成の編集] から Gradle タスクを追加し、`mbGenerator` を設定します。
 作成したGradleタスクを実行してください。
 
+### 注意点
+
+- Mybatis Generator の実行は、テーブルを定義した後に実行してください。
+- 対象のテーブルを `generatorConfig.xml` に追加してください。
+- Entity クラスに Enum を設定した場合は上書きされてしまうため、再生成時に注意してください。
+
 ## OpenAPI 
 
 Springdoc は Spring MVC のアノテーション（例: @RestController, @RequestMapping, @GetMapping）を解析し、API ドキュメントを自動生成します。
