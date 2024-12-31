@@ -2,9 +2,9 @@ package wakusan61.spring.todo.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import wakusan61.spring.todo.dto.TodoDto;
-import wakusan61.spring.todo.dto.TodoWithNoIdDto;
 import wakusan61.spring.todo.service.TodoService;
 
 import java.util.List;
@@ -33,13 +33,13 @@ public class TodoController {
 
   @PostMapping
   @Operation(summary = "Todoを新規作成します。", description = "新規にTodoを作成します。")
-  public TodoDto createTodo(@RequestBody TodoWithNoIdDto dto) {
+  public TodoDto createTodo(@Validated(TodoDto.CreateGroup.class) @RequestBody TodoDto dto) {
     return todoService.createTodo(dto);
   }
 
   @PutMapping
   @Operation(summary = "Todoを更新します。", description = "指定したIDのTodoを更新します。")
-  public void updateTodo(@RequestBody TodoDto dto) {
+  public void updateTodo(@Validated(TodoDto.DefaultGroup.class) @RequestBody TodoDto dto) {
     todoService.updateTodo(dto);
   }
 

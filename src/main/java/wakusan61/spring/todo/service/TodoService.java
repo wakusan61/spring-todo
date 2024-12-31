@@ -1,9 +1,9 @@
 package wakusan61.spring.todo.service;
 
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Service;
 import wakusan61.spring.todo.converter.TodoConverter;
 import wakusan61.spring.todo.dto.TodoDto;
-import wakusan61.spring.todo.dto.TodoWithNoIdDto;
 import wakusan61.spring.todo.mapper.TodoMapper;
 import wakusan61.spring.todo.model.Todo;
 
@@ -33,7 +33,7 @@ public class TodoService {
     return todoConverter.toDto(todoMapper.selectByPrimaryKey(id));
   }
 
-  public TodoDto createTodo(TodoWithNoIdDto dto) {
+  public TodoDto createTodo(@Valid TodoDto dto) {
     Todo todo = todoConverter.toEntity(dto);
     todoMapper.insert(todo);
     return todoConverter.toDto(todo);

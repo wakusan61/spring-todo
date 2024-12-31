@@ -22,6 +22,6 @@ public class EnumBaseDeserializer extends JsonDeserializer<EnumBase> {
         return enumConstant;
       }
     }
-    throw new IllegalArgumentException("Unknown enum code: " + code);
+    throw new IllegalArgumentException("Unknown enum code. " + enumClass.getName() + ":" + code);
   }
 }
