@@ -4,6 +4,7 @@ plugins {
 	id 'org.springframework.boot' version '3.4.0'
 	id 'io.spring.dependency-management' version '1.1.6'
 	id 'com.thinkimi.gradle.MybatisGenerator' version '2.4'
+	id 'jacoco' // JaCoCo プラグインを追加
 }
 
 group = 'wakusan61.spring'
@@ -60,8 +61,23 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
-	jvmArgs += '-javaagent:' + configurations.testRuntimeClasspath.find { it.name.contains("mockito-core") }
 }
+
+jacoco {
+	toolVersion = "0.8.10" // 最新の JaCoCo バージョンを指定 (適宜更新)
+}
+
+jacocoTestReport {
+	reports {
+		xml.required = true // XML レポートを生成
+		html.required = true // HTML レポートを生成
+	}
+}
+
+test {
+	finalizedBy jacocoTestReport // テスト実行後にレポートを生成
+}
+
 
 mybatisGenerator {
 	verbose = true
