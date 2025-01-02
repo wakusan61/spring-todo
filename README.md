@@ -11,17 +11,22 @@
 ```
 src/
 ├── main/
-│   ├── java/com/example/todo/
-│   │   ├── controller/   // REST API コントローラー
-│   │   ├── service/      // ビジネスロジック
-│   │   ├── mapper/       // データベース操作 (MyBatis) ※ 自動生成
-│   │   ├── model/        // エンティティ ※ 自動生成
-│   │   └── config/       // 設定クラス
+│   ├── java/wakusan61/spring/todo/
+│   │   ├── common/       // 各レイヤー（Controller、Service、Repositoryなど）で共通的に使用されるユーティリティクラスや定数などを格納します。
+│   │   ├── config/       // Spring の設定クラス（@Configuration アノテーションが付与されたクラス）を格納します。例えば、MyBatis の設定や Jackson の設定などが含まれます。
+│   │   ├── controller/   // REST API のエンドポイントを定義し、リクエストを受け付けてレスポンスを返します。
+│   │   ├── converter/    // DTO（Data Transfer Object）と Entity の間の変換を行うクラスを格納します。
+│   │   ├── dto/          // Controller と Service 間でデータをやり取りするためのオブジェクトを格納します。
+│   │   ├── handler/      // 例外処理やその他のハンドリングロジックを格納します。
+│   │   ├── mapper/       // MyBatis のマッパーインターフェースを格納します。これらは通常、自動生成されます。
+│   │   ├── model/        // データベースのテーブルに対応する Entity クラスを格納します。これらは通常、自動生成されます。
+│   │   ├── serializer/   // JSON と Java オブジェクト間のシリアライズ・デシリアライズを行うクラスを格納します。
+│   │   └── service/      // ビジネスロジックを実装するクラスを格納します。
 │   ├── resources/
 │   │   ├── application.yml // アプリケーション設定
 │   │   └── mapper/        // MyBatis マッパーXML ※ 自動生成
 │   └── test/
-│       └── java/com/example/todo/
+│       └── java/wakusan61/spring/todo/ // テストコード
 ```
 
 ## MyBatis Generator
@@ -56,9 +61,10 @@ Springdoc は Spring MVC のアノテーション（例: @RestController, @Reque
 1. Swagger UI:http://localhost:8080/swagger-ui.html
 2. OpenAPI ドキュメント (JSON):http://localhost:8080/v3/api-docs
 
-## Spring-Todo プロンプト
+## 生成AIによるハンズオン作成
 
-https://chatgpt.com/g/g-n7Rs0IK86-grimoire/c/67665809-2544-8004-98ad-0e6e581f3ac7
+Spring Boot を学習する際に、生成AIにハンズオンを作ってもらいながら学習しました。
+以下のプロンプトと、GitHubのリポジトリを参照してもらいながら、 `Chat-GPT 4o` `Claude 3.5 Sonet` `GitHub Copilot` `Gemini 2.0 Flash Experiment` などのAIを使って、ハンズオンを作成してもらいました。
 
 ```markdown
 # 【目的・背景】

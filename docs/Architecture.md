@@ -17,7 +17,8 @@ sequenceDiagram
     S ->> C: toEntity(todoDto)
     C -->> S: todo
     S ->> R: insert(todo)
-    R ->> D: INSERT INTO todo (title, completed) VALUES ('Buy milk', false)
+    R ->> D: INSERT INTO todo (title, status) VALUES ('Buy milk', 0)
+    D -->> R: todo
     R -->> S: todo
     S ->> C: toDto(todo)
     C -->> S: todoDto
@@ -32,7 +33,7 @@ sequenceDiagram
 クライアントは、POST /api/todo に対して、以下の JSON をリクエストボディに含めてリクエストを送信します。
 
 ```json
-{ "title": "Buy milk", "completed": false }
+{ "title": "Buy milk", "status": 0 }
 ```
 
 ### ② コントローラがサービスのメソッドを呼び出し
@@ -57,17 +58,21 @@ sequenceDiagram
 
 リポジトリは、エンティティをデータベースに保存するためのクエリを送信します。
 
-クエリは [マッピング定義](../src/main/resources/mapper/TodoRepository.xml) の insertを参照
+クエリは [マッピング定義](../src/main/resources/mapper/TodoMapper.xml) の insertを参照
 
-### ⑦ リポジトリがエンティティを返却
+### ⑦ データベースから取得したデータをMyBatisがエンティティにマッピングして返却
 
-リポジトリは、データベースに保存されたエンティティを返却します。
+- 戻り値: `todo`
 
-### ⑧、⑨ サービスがコンバーターでEntityをDtoに変換
+### ⑧ リポジトリがエンティティを返却
+
+リポジトリは、データベースから取得したエンティティをサービスに返却します。
+
+### ⑨、⑩ サービスがコンバーターでEntityをDtoに変換
 
 - 引数： `todo`
 - 戻り値: `todoDto`
 
-### ⑩ コントローラがレスポンスを返却
+### ⑪ コントローラがレスポンスを返却
 
 コントローラは、レスポンスボディに変換された DTO を含めてレスポンスを返却します。
