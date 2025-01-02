@@ -25,7 +25,7 @@ jobs:
       - name: Test with Gradle and Generate Jacoco Report
         run: ./gradlew test jacocoTestReport # テストとレポート生成
       - name: Upload JaCoCo coverage report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: jacoco-report
           path: build/reports/jacoco/test
