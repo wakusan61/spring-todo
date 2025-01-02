@@ -1,4 +1,4 @@
-package wakusan61.spring.todo.typehandler;
+package wakusan61.spring.todo.handler;
 
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;

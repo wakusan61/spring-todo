@@ -6,7 +6,7 @@ import org.reflections.Reflections;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import wakusan61.spring.todo.common.EnumBase;
-import wakusan61.spring.todo.typehandler.EnumTypeHandler;
+import wakusan61.spring.todo.handler.EnumTypeHandler;
 
 import java.util.Set;
 
