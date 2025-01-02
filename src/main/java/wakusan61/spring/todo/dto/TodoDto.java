@@ -18,7 +18,7 @@ public class TodoDto {
   private Integer id;
 
   @NotNull(message = "タイトルは必須です" , groups = {DefaultGroup.class, CreateGroup.class})
-  @Size(min = 1, max = 255, message = "タイトルは1文字以上255文字以下です")
+  @Size(min = 1, max = 255, message = "タイトルは1文字以上255文字以下です" ,groups={DefaultGroup.class, CreateGroup.class})
   private String  title;
 
   @Schema(type = "integer", allowableValues = {"0", "1", "2"}, description = "0: 未着手, 1: 進行中, 2: 完了")

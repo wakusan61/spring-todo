@@ -6,7 +6,9 @@ import wakusan61.spring.todo.model.Todo;
 
 @Component
 public class TodoConverter {
-  // TodoDto から Todo へ変換
+  /**
+   * TodoDto から Todo へ変換
+   */
   public Todo toEntity(TodoDto dto) {
     Todo entity = new Todo();
     entity.setId(dto.getId());
@@ -15,7 +17,9 @@ public class TodoConverter {
     return entity;
   }
 
-  // Todo から TodoDto へ変換
+  /**
+   * Todo から TodoDto へ変換
+   */
   public TodoDto toDto(Todo entity) {
     TodoDto dto = new TodoDto();
     dto.setId(entity.getId());
