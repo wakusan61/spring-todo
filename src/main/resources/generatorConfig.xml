@@ -36,6 +36,8 @@
         <javaModelGenerator
                 targetPackage="wakusan61.spring.todo.model"
                 targetProject="src/main/java">
+            <!-- 上書き禁止の設定 -->
+            <property name="overwrite" value="false" />
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
