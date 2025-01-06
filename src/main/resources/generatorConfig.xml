@@ -36,6 +36,8 @@
         <javaModelGenerator
                 targetPackage="wakusan61.spring.todo.model"
                 targetProject="src/main/java">
+            <!-- 上書き禁止の設定 -->
+            <property name="overwrite" value="false" />
             <!-- 上書きタイプ：既存クラスが存在する場合、既存クラスを変更せず、必要なフィールドのみ更新 -->
             <property name="modelType" value="conditional" />
             <property name="enableSubPackages" value="false"/>
